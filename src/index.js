@@ -19,15 +19,19 @@ app.use(
     schema
   })
 )
+
 app.use(
 '/graphiql',
   graphiqlExpress({
     endpointURL: '/graphql'
   })
 )
+
 app.listen(
   4000,
   () => {
-    console.log('Now browse to localhost:4000/graphiql')
+    console.log('\n')
+    console.log('Graphql serving at localhost:4000/graphql')
+    console.log('GraphiQL serving at localhost:4000/graphiql')
   }
 )
