@@ -4,7 +4,8 @@ A boilerplate project using apollo graphql to serve up static data. This project
 ## Running
 Clone the project and run `npm start` from the root directory
 ```
-git clone [this project] && cd apollo-graphql-boilerplate
+git clone git@github.com:jesseflorig/apollo-server-boilerplate.git
+cd apollo-graphql-boilerplate
 npm start
 ```
 
