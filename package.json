@@ -1,0 +1,35 @@
+{
+  "name": "apollo-server-boilerplate",
+  "version": "0.1.0",
+  "description": "Apollo server boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jesseflorig/apollo-server-boilerplate"
+  }
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "start": "npm run build && node lib",
+    "test": "test"
+  },
+  "keywords": [
+    "apollo",
+    "graphql",
+    "server",
+    "boilerplate"
+  ],
+  "author": "Jesse Florig",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^1.4.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^3.0.5",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
