@@ -6,6 +6,7 @@ Clone the project and run `npm start` from the root directory
 ```
 git clone git@github.com:jesseflorig/apollo-server-boilerplate.git
 cd apollo-graphql-boilerplate
+npm install
 npm start
 ```
 
