@@ -1,42 +1,42 @@
-import { find, filter } from 'lodash';
+import { Authors, Categories, Posts } from './data'
+import { find, filter } from 'lodash'
 
-// example data
-const authors = [
-  { id: 1, firstName: 'Tom', lastName: 'Coleman' },
-  { id: 2, firstName: 'Sashko', lastName: 'Stubailo' },
-  { id: 3, firstName: 'Mikhail', lastName: 'Novikov' },
-]
-
-const posts = [
-  { id: 1, authorId: 1, title: 'Introduction to GraphQL', votes: 2 },
-  { id: 2, authorId: 2, title: 'Welcome to Meteor', votes: 3 },
-  { id: 3, authorId: 2, title: 'Advanced GraphQL', votes: 1 },
-  { id: 4, authorId: 3, title: 'Launchpad is Cool', votes: 7 },
-]
+const authors = Authors
+const categories = Categories
+const posts = Posts
 
 const Resolvers = {
   Query: {
-    posts: () => posts,
     author: (_, { id }) => find(authors, { id }),
+    authors: () => authors,
+    category: (_, { id }) => find(categories, { id }),
+    categories: () => categories,
+    post: (_, { id }) => find(authors, { id }),
+    posts: () => posts,
   },
   
   Mutation: {
     upvotePost: (_, { postId }) => {
-      const post = find(posts, { id: postId });
+      const post = find(posts, { id: postId })
       if (!post) {
-        throw new Error(`Couldn't find post with id ${postId}`);
+        throw new Error(`Couldn't find post with id ${postId}`)
       }
-      post.votes += 1;
-      return post;
+      post.votes += 1
+      return post
     },
   },
   
   Author: {
     posts: author => filter(posts, { authorId: author.id }),
   },
-  
+
+  Category: {
+    posts: category => filter(posts, { catId: category.id }),
+  },
+
   Post: {
     author: post => find(authors, { id: post.authorId }),
+    category: post => find(categories, { id: post.catId }),
   },
 }
 
